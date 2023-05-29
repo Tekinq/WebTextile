@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Create Employees</title>
+        <h:outputStylesheet library="css" name="bootstrap.css" /> <!-- import ettik-->
+        
+        <style>
+            body {
+                background-color: #d4fadb;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="container"> <!-- ekrana ortaladik-->
+            <h:form>
+                <div>
+                    <h:inputHidden value="#{employeesBean.entity.emp_id}" />
+                    <h1 align="center">Employees</h1>
+                    <br/> <br/> <br/>
+                    First_Name  <h:inputText class="form-control" value="#{employeesBean.entity.first_name}" />
+                    Last_Name  <h:inputText class="form-control" value="#{employeesBean.entity.last_name}" /> <br/>
+                    Phone  <h:inputText class="form-control" value="#{employeesBean.entity.phone}" />
+                    Workplace_Id  <h:inputText class="form-control" value="#{employeesBean.entity.workplace_id}" />
+                </div>
+
+                <br/>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <h:commandButton class="btn btn-warning" action="#{employeesBean.create}" value="Save" />
+                </div>
+                <!-- styleClass ile table ozelligi verdik-->
+                <h:dataTable styleClass="table table-striped" value="#{employeesBean.list}" var="e" >
+
+                    <h:column>
+                        <f:facet name="header">Emp_Id</f:facet>
+                            #{e.emp_id}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">First_Name</f:facet>
+                            #{e.first_name}
+
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Last_Name</f:facet>
+                            #{e.last_name}
+                    </h:column><!-- comment -->
+                    <h:column>
+                        <f:facet name="header">Phone</f:facet>
+                            #{e.phone}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">WorkPlace_Id</f:facet>
+                            #{e.workplace_id}
+                    </h:column>
+
+
+
+                </h:dataTable>
+                <br/> <br/>
+                
+                <h:commandButton action="index" value="Back to Home Page"/>
+
+                <hr />
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

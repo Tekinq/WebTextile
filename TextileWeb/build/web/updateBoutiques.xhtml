@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Update Boutiques</title>
+        <h:outputStylesheet library="css" name="bootstrap.css" /> <!-- import ettik-->
+
+        <style>
+            body {
+                background-color: #d4fadb;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="container"> <!-- ekrana ortaladik-->
+            <h:form>
+                <div>
+                    <!-- tiklaninca id bilgisi alindi-->
+                    <h:inputHidden value="#{boutiquesBean.entity.bout_id}" />
+                    <h1 align="center">Boutiques</h1>                   
+                    <br/> <br/> <br/>
+                    Boutiques Name <h:inputText class="form-control" value="#{boutiquesBean.entity.bout_name}" />
+                    City_Id  <h:inputText class="form-control" value="#{boutiquesBean.entity.city_id}" />
+                    Factory_Id  <h:inputText class="form-control" value="#{boutiquesBean.entity.factor_id}" />
+                </div>
+                <br/>
+
+                <!-- butonu kaydirdik-->
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <!-- duruma gore hangisi gelecek -->
+                    <h:commandButton class="btn btn-warning" action="#{boutiquesBean.update}" value="Update" />
+                </div>
+                <!-- styleClass ile table ozelligi verdik-->
+                <h:dataTable styleClass="table table-striped"  value="#{boutiquesBean.list}" var="b" >
+
+                    <h:column>
+                        <f:facet name="header">ID</f:facet>
+                            #{b.bout_id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">BOUTIQUE_NAME</f:facet>
+                        <!-- isme tiklaninca guncelleme islemi baslayacak-->
+                        <!-- tiklaninca id bilgisi gelsin diye link ozelligi atadik-->
+                        <h:commandLink action="#{boutiquesBean.updateForm(b)}" value="#{b.bout_name}" />
+
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">City_Id</f:facet>
+                            #{b.city_id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Factory_Id</f:facet>
+                            #{b.factor_id}
+                    </h:column>
+
+                </h:dataTable>
+                
+                 <br/> <br/>
+                
+                <h:commandButton action="index" value="Back to Home Page"/>
+
+                <hr />
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

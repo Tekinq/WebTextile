@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>City</title>
+        <h:outputStylesheet library="css" name="bootstrap.css" /> <!-- import ettik-->
+
+        <style>
+            body {
+                background-color: #d4fadb;
+            }
+            
+            .kapsam{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: auto;
+                width: auto;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="container"> <!-- ekrana ortaladik-->
+            <h:form id="city-form"> <br/> <br/>
+                <h1 align="center">City</h1>
+                <br/> <br/> <br/>
+
+                <h:dataTable styleClass="table table-striped"  value="#{cityBean.list2}" var="c" >
+                    <h:column>
+                        <f:facet name="header">ID</f:facet>
+                            #{c.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">NAME</f:facet>
+                            #{c.names}
+                    </h:column>
+
+                </h:dataTable> 
+                <div class="kapsam">
+                    <div class="btn-group">
+                        <h:commandButton action="#{cityBean.previous}" value="Previous" styleClass="btn btn-outline-dark" >
+                            <f:ajax execute="city-form" render="city-form"/>
+                        </h:commandButton>    
+                        <h:commandButton action="#{cityBean.next}" value="Next" styleClass="btn btn-outline-dark" >
+                            <f:ajax execute="city-form" render="city-form"/>
+                        </h:commandButton> 
+
+                    </div>
+                </div>
+                <br/> <br/>
+
+                <hr />
+
+                <h:commandButton action="index" value="Back to Home Page"/>
+
+                <hr />
+
+            </h:form>
+        </div>
+
+
+
+    </h:body>
+</html>
+

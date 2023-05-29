@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">    
+    <h:head>
+        <title>Create Stocks</title>
+        <h:outputStylesheet library="css" name="bootstrap.css" /> <!-- import ettik-->
+
+        <style>
+            body {
+                background-color: #d4fadb;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="container"> <!-- ekrana ortaladik-->
+            <h:form>
+                <div>
+                    <h:inputHidden value="#{stocksBean.entity.stock_id}" />
+                    <h1 align="center">Stocks</h1>
+                    <br/> <br/> <br/>
+                    Cloth_Id  <h:inputText class="form-control" value="#{stocksBean.entity.cloth_id}" />
+                    Stock  <h:inputText class="form-control" value="#{stocksBean.entity.stock}" /> <br/>
+                </div>
+
+                <br/>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <h:commandButton class="btn btn-warning" action="#{stocksBean.create}" value="Save" />
+                </div>
+                <!-- styleClass ile table ozelligi verdik-->
+                <h:dataTable styleClass="table table-striped" value="#{stocksBean.list}" var="s" >
+
+                    <h:column>
+                        <f:facet name="header">Stock_Id</f:facet>
+                            #{s.stock_id}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Cloth_Id</f:facet>
+                            #{s.cloth_id}
+
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Stock</f:facet>
+                            #{s.stock}
+                    </h:column>
+
+
+                </h:dataTable>
+                <br/> <br/>
+
+                <h:commandButton action="index" value="Back to Home Page"/>
+
+                <hr />
+            </h:form>
+        </div>
+
+    </h:body>
+</html>
+

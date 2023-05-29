@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Textile Web Private Page </title>
+        <h:outputStylesheet library="css" name="bootstrap.css" /> <!-- import ettik-->
+
+        <style>
+            body {
+                background-color: #d4fadb;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="container"> <!-- ekrana ortaladik-->
+            <h:form> <br/> <br/>
+
+                <h1 align="center">Textile Web</h1> <br/><br/>
+
+                <h:commandButton action="City" value="City"/>
+                <h:commandButton action="readCity" value="Read City"/> 
+                <h:commandButton action="createCity" value="Create New City"/> 
+                <h:commandButton action="deleteCity" value="Delete City"/>
+                <h:commandButton action="updateCity" value="Update City"/>
+
+                <br/> <br/>
+                <h:commandButton action="readEmployees" value="Read Employees"/>
+                <h:commandButton action="createEmployees" value="Create New Employees"/>
+                <h:commandButton action="deleteEmployees" value="Delete Employees"/>
+                <h:commandButton action="updateEmployees" value="Update Employees"/>
+                <br/> <br/>
+                <h:commandButton action="readStocks" value="Read Stocks"/>
+                <h:commandButton action="createStocks" value="Create New Stocks"/>
+                <h:commandButton action="deleteStocks" value="Delete Stocks"/>
+                <h:commandButton action="updateStocks" value="Update Stocks"/>
+                <br/> <br/>
+                <h:commandButton action="readFactories" value="Read Factories"/>
+                <h:commandButton action="createFactories" value="Create New Factories"/>
+                <h:commandButton action="deleteFactories" value="Delete Factories"/>
+                <h:commandButton action="updateFactories" value="Update Factories"/>
+                <br/> <br/>
+                <h:commandButton action="readBoutiques" value="Read Boutiques"/>
+                <h:commandButton action="createBoutiques" value="Create New Boutiques"/>
+                <h:commandButton action="deleteBoutiques" value="Delete Boutiques"/>
+                <h:commandButton action="updateBoutiques" value="Update Boutiques"/>
+                <br/> <br/>
+                <h:commandButton action="readClothes" value="Read Clothes"/>
+                <h:commandButton action="createClothes" value="Create New Clothes"/>
+                <h:commandButton action="deleteClothes" value="Delete Clothes"/>
+                <h:commandButton action="updateClothes" value="Update Clothes"/>
+                <br/> <br/>
+                <h:commandButton action="index" value="Çıkış Yap"/>
+                <hr/>
+
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

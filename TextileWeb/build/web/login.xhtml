@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Textile Web Private Page </title>
+        <h:outputStylesheet library="css" name="bootstrap.css" /> <!-- import ettik-->
+
+        <style>
+            body {
+                background-color: #d4fadb;
+            }
+
+            .kapsam{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: auto;
+                width: auto;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        </style>
+
+    </h:head>
+    <h:body>
+        <div class="container" >
+
+            <div class="kapsam">
+                <h1 align="center">Login Page</h1> <br/><br/>
+            </div>
+            <br/>
+
+            <h:form rendered="#{validUser == null}"> <br/> <br/>
+                <div class="kapsam">
+                    Username : 
+                    <h:inputText id="username" value="#{lc.user.username}"  required="true" requiredMessage="Username alanı zorunludur" ><br/><br/><br/>
+                        <hr/> <hr/>
+                        <f:validateLength minimum="3" maximum="6" />
+
+                    </h:inputText> <br/> <hr/> <br/><br/>
+
+
+                    <h:message for="username" style="color: red ; font-size: 10pt" />
+                </div>
+                <div class="kapsam">
+                    <span id="singularReadingHelpInline" class="form-text">
+                        İpucu : admin
+                    </span>
+                </div>
+                <br/>
+                <div class="kapsam">
+                    Password : <h:inputText id="password" value="#{lc.user.password}" validator="#{validationBean.validatePassword}" /> <br/><br/>
+                   
+
+                    
+                    <h:message for="password" style="color: red ; font-size: 10pt" />
+                </div>
+                <div class="kapsam">
+                    <span id="singularReadingHelpInline" class="form-text">
+                        İpucu : 12345678
+                    </span>
+                </div><br/>
+                <div class="kapsam">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                    <h:commandButton action="#{lc.login}" value="Login" />
+                </div>
+                <br/> <br/>
+
+
+            </h:form>
+
+
+            <h:panelGroup rendered="#{validUser != null}" layout="block" >
+
+                Username : #{validUser.username} <br/>
+
+                Password : #{validUser.password} 
+                <br/><br/><br/>
+                <hr/> <hr/>
+
+            </h:panelGroup>
+            <br/> <br/>
+
+            <h:form>
+                <div class="kapsam">
+                    <h:commandButton action="/index?faces-redirect=true" value="Ana Sayfa" styleClass="btn btn-primary"/> &nbsp;&nbsp; &nbsp;&nbsp;
+                    <h:commandButton action="/login?faces-redirect=true" value="Login" styleClass="btn btn-primary" />&nbsp;&nbsp; &nbsp;&nbsp;
+                    <h:commandButton action="/logPrivate?faces-redirect=true" value="Private" styleClass="btn btn-primary" />&nbsp;&nbsp; &nbsp;&nbsp;
+                    <h:commandButton action="/login?faces-redirect=true" value="Logout" styleClass="btn btn-primary" />
+                </div>
+
+            </h:form>
+
+            <hr/>
+
+            <h:messages>
+
+
+            </h:messages>
+
+
+
+        </div>
+    </h:body>
+</html>

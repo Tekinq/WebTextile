@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Textile Web Public Page</title>
+        <h:outputStylesheet library="css" name="bootstrap.css" /> <!-- import ettik-->
+
+        <style>
+            body {
+                background-color: #d4fadb;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="container"> <!-- ekrana ortaladik-->
+            <h:form> <br/> <br/>
+
+                <h1 align="center">Textile Web</h1> <br/><br/>
+                
+                <h:commandButton action="City" value="City"/>
+                <h:commandButton action="readCity" value="Read City"/> 
+                
+
+                <br/> <br/>
+                <h:commandButton action="readEmployees" value="Read Employees"/>
+                
+                <br/> <br/>
+                <h:commandButton action="readStocks" value="Read Stocks"/>
+               
+                <br/> <br/>
+                <h:commandButton action="readFactories" value="Read Factories"/>
+                
+                <br/> <br/>
+                <h:commandButton action="readBoutiques" value="Read Boutiques"/>
+                
+                <br/> <br/>
+                <h:commandButton action="readClothes" value="Read Clothes"/>
+                
+                <br/> <br/>
+                <hr/><hr />
+
+                <h:commandButton action="index" value="Back to Home Page"/>
+                
+                <hr />
+
+            </h:form>
+        </div>
+    </h:body>
+</html>
+
